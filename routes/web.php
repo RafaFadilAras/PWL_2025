@@ -81,3 +81,15 @@ Route::get('/articles/{id}', [ArticleController::class,'articles']);
 Route::get('/post/{post}/comments/{comment}', [ArticleController::class,'post']);
 
 Route::resource('photos', PhotoController::class);
+
+Route::resource('photos', PhotoController::class)->only([
+    'index',
+    'show'
+]);
+
+Route::resource('photos', PhotoController::class)->except([
+    'create',
+    'store',
+    'update',
+    'destroy'
+]);
